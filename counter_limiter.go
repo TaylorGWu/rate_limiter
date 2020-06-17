@@ -18,6 +18,7 @@ func (l *CounterLimiter) GetToken() (bool) {
 	defer l.mutex.Unlock()
 
 	if l.counter < l.maxCount {
+		l.counter += 1
 		return true
 	} else {
 		return false
